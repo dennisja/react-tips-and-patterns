@@ -493,3 +493,95 @@ Often used when you have several components that need to access state that a use
 
 ---
 [Demo](http://localhost:3000/)
+
+
+<!-- Beyond Render Props Demo begins here -->
+---
+
+## [Beyond Render Props](https://codesandbox.io/s/pj3vx52qoj)
+### Inversion of Control
+- **Prop Collections:**
+Can be used with render props to pass props that are common to all elements that will be rendered by the render prop
+
+---
+
+- **Prop Getters:**
+ Do other actions after predefined methods in your component
+
+ - **State Initilizers:**
+ Break Encapsulation:  by Giving you component users a way to initialize their state
+
+---
+
+ - **State Reducers:**
+ Give Users a way to modify how your component state is managed
+
+- **Control Props:**
+ Control how components behave by passing in control props to elements.
+ The props are controlled by the parent element
+
+ ```notes
+  The terms “controlled” and “uncontrolled” usually refer to form inputs, but they can also describe where any component’s data lives.
+  Data passed in as props can be thought of as controlled
+  (because the parent component controls that data).
+  Data that exists only in internal state can be thought of as uncontrolled
+  (because the parent can’t directly change it).
+ ```
+
+ <!-- Performance Tips sildes begin here  -->
+
+---
+
+# Why React Apps Might be Slow?
+1. Browser Side
+    - Dom elements and mutations
+    - Repaints and Reflow
+    - Garbage Collection
+
+---
+
+2. React Side
+    - Unnecessary Re renders
+    - React Development Build(Bundle Size)
+
+---
+
+# Techniques that can be employed to improve performance of react apps
+1. Windowing
+2. Memoization
+3. shouldComponentUpdate
+4. PureComponent
+6. Code Splitting
+7. Building for Production
+
+
+<!-- Extra Slides Begin Here -->
+---
+
+## Error Boundaries
+ JavaScript error in a part of the UI shouldn’t break the whole app. 
+
+Error boundaries do 
+ - catch JavaScript errors anywhere in their child component tree, 
+ - log those errors
+ - display a fallback UI instead of the component tree that crashed. 
+
+---
+
+Error boundaries catch errors during rendering, in lifecycle methods, and in constructors of the whole tree below them.
+Error boundaries do not catch errors for:
+ - Event handlers (learn more)
+ - Asynchronous code (e.g. setTimeout or requestAnimationFrame callbacks)
+ - Server side rendering
+ - Errors thrown in the error boundary itself (rather than its children)
+
+Note: Event handling doesn’t happen during rendering. Hence catch errors in event handlers using try/catch
+
+---
+
+[Demo](https://codesandbox.io/s/n4z49z0lxl)
+
+---
+Good Bye
+
+🕊️
