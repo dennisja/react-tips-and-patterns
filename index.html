@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width,initial-scale=1'>
+<style>*{box-sizing:border-box}body{font-family:system-ui,sans-serif;margin:0}html,body{overflow:hidden}</style>
+<meta name='generator' content='mdx-deck'>
+<title data-head="true">Its Just React: Tips and Patterns to super charge your React Development</title><style data-styled-components="hsARDy kmKUJZ eGsEPm zIEGn enxKql dYzIWH fhSvky gUEpCd jHprQs bJSzQT jjPEjx fGKxXW hISnYn bIQQAp bRtGfs cXgiMa eCoqJu kaUAEP gtARdA hOCGEu fbxTAJ bNhvRs">
+/* sc-component-id: sc-bdVaJa */
+.sc-bdVaJa {} .eCoqJu{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;margin-bottom:8px;margin-left:auto;margin-right:auto;} @media print{.eCoqJu{display:none;}}
+/* sc-component-id: sc-bwzfXH */
+.sc-bwzfXH {} .kaUAEP{-webkit-appearance:none;-moz-appearance:none;appearance:none;border:4px solid transparent;background-clip:padding-box;border-radius:9999px;width:8px;height:8px;color:inherit;opacity:0.5;margin:0px;padding:4px;color:#000;background-color:#000;} .kaUAEP:focus{outline:none;box-shadow:0 0 0 1px;}.gtARdA{-webkit-appearance:none;-moz-appearance:none;appearance:none;border:4px solid transparent;background-clip:padding-box;border-radius:9999px;width:8px;height:8px;color:inherit;opacity:0.125;margin:0px;padding:4px;color:#000;background-color:#000;} .gtARdA:focus{outline:none;box-shadow:0 0 0 1px;}
+/* sc-component-id: sc-htpNat */
+.sc-htpNat {} .cXgiMa{position:fixed;left:0;right:0;bottom:0;}
+/* sc-component-id: sc-bxivhb */
+.sc-bxivhb {} .fbxTAJ{cursor:pointer;width:64px;height:100vh;}
+/* sc-component-id: sc-ifAKCX */
+.sc-ifAKCX {} .hOCGEu{position:fixed;top:0;left:0;bottom:0;}
+/* sc-component-id: sc-EHOje */
+.sc-EHOje {} .bNhvRs{position:fixed;top:0;right:0;bottom:0;}
+/* sc-component-id: sc-bZQynM */
+.sc-bZQynM {} .kmKUJZ{overflow-x:hidden;width:100%;height:100%;} @media print{.kmKUJZ{height:auto;overflow-x:visible;}}
+/* sc-component-id: sc-gzVnrw */
+.sc-gzVnrw {} .eGsEPm{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;width:100%;height:100%;-webkit-transition-property:-webkit-transform;-webkit-transition-property:transform;transition-property:transform;-webkit-transition-timing-function:ease-out;transition-timing-function:ease-out;-webkit-transition-duration:.3s;transition-duration:.3s;-webkit-transform:translateX(0%);-ms-transform:translateX(0%);transform:translateX(0%);} @media print{.eGsEPm{height:auto;display:block;}}
+/* sc-component-id: sc-htoDjs */
+.sc-htoDjs {} .zIEGn{-webkit-flex:none;-ms-flex:none;flex:none;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;overflow:hidden;width:100%;height:100%;padding-left:32px;padding-right:32px;} @media print{.zIEGn{width:100vw;height:100vh;page-break-after:always;page-break-inside:avoid;-webkit-print-color-adjust:exact;}} @media screen and (min-width:40em){.zIEGn{padding-left:64px;padding-right:64px;}} @media screen and (min-width:52em){.zIEGn{padding-left:128px;padding-right:128px;}}
+/* sc-component-id: sc-dnqmqq */
+.sc-dnqmqq {} .hsARDy{font-family:system-ui,sans-serif;font-size:16px;text-align:center;width:100vw;height:100vh;color:#000;background-color:white;} @media print{.hsARDy{font-size:24px;height:auto;}} @media screen and (min-width:64em){.hsARDy{font-size:32px;}}
+/* sc-component-id: sc-fjdhpX */
+.sc-fjdhpX {} .dYzIWH{line-height:1.25;font-size:3em;margin-bottom:16px;margin-top:16px;color:heading;}
+/* sc-component-id: sc-jzJRlG */
+.sc-jzJRlG {}
+/* sc-component-id: sc-cSHVUG */
+.sc-cSHVUG {} .bJSzQT{line-height:1.25;font-size:2em;margin-bottom:16px;margin-top:16px;color:heading;}
+/* sc-component-id: sc-kAzzGY */
+.sc-kAzzGY {}
+/* sc-component-id: sc-hMqMXs */
+.sc-hMqMXs {} .gUEpCd{color:#07c;}
+/* sc-component-id: sc-kEYyzF */
+.sc-kEYyzF {} .fhSvky{font-size:1.5em;}
+/* sc-component-id: sc-kkGfuU */
+.sc-kkGfuU {} .hISnYn{text-align:left;font-size:1.5em;text-align:left;}
+/* sc-component-id: sc-hSdWYo */
+.sc-hSdWYo {}
+/* sc-component-id: sc-cvbbAY */
+.sc-cvbbAY {} .jjPEjx{font-family:Menlo,monospace;text-align:left;white-space:pre-wrap;font-size:1em;margin:0px;padding:8px;color:#f0f;background-color:#333;}
+/* sc-component-id: sc-jWBwVP */
+.sc-jWBwVP {} .fGKxXW{font-family:Menlo,monospace;color:#f0f;background-color:codeBackground;}
+/* sc-component-id: sc-jDwBTQ */
+.sc-jDwBTQ {} .bRtGfs{background-position:center;background-repeat:no-repeat;background-size:contain;background-image:url(ca60c4182522f4ac2656888aa3d212de.jpg);width:100vw;height:100vh;}</style>
+</head>
+<body>
+<div id=root><div><div class="sc-dnqmqq hsARDy" mode="NORMAL" step="0" width="100vw" height="100vh" color="text"><div class="sc-bZQynM kmKUJZ"><div class="sc-gzVnrw eGsEPm"><div class="sc-htoDjs zIEGn"><div><h1 class="sc-jzJRlG enxKql sc-fjdhpX dYzIWH" font-size="4" color="heading">React Tips and Patterns</h1></div></div><div class="sc-htoDjs zIEGn"><div><img src="23b857ac2c32f6d5a06f2b857a581b4a.jpg" width="300" heigth="300" style="border-radius:50%"/><p class="sc-kEYyzF fhSvky" font-size="2">Dennis Jjagwe</p><p class="sc-kEYyzF fhSvky" font-size="2">twitter: <a class="sc-hMqMXs gUEpCd" href="https://twitter.com/dennisjjagwe" color="link">dennisjjagwe</a></p><p class="sc-kEYyzF fhSvky" font-size="2">github: <a class="sc-hMqMXs gUEpCd" href="https://github.com/dennisja" color="link">dennisja</a></p><p class="sc-kEYyzF fhSvky" font-size="2">slack: @dj</p></div></div><div class="sc-htoDjs zIEGn"><div><h1 class="sc-jzJRlG enxKql sc-fjdhpX dYzIWH" font-size="4" color="heading">Disclaimer</h1><p class="sc-kEYyzF fhSvky" font-size="2">Content Discussed Here might not be the <strong>BEST PRACTICES</strong></p><p class="sc-kEYyzF fhSvky" font-size="2">But they are <strong>GOOD PRACTICES</strong></p><p class="sc-kEYyzF fhSvky" font-size="2">Which might turn out to be <strong>BEST PRACTICES</strong> in <strong>SOME SCENARIOS</strong></p></div></div><div class="sc-htoDjs zIEGn"><div><h2 class="sc-kAzzGY jHprQs sc-cSHVUG bJSzQT" font-size="3" color="heading"><a class="sc-hMqMXs gUEpCd" href="http://jxnblk.com/writing/posts/defining-component-apis-in-react/" color="link">Defining React component APIS</a></h2><h2 class="sc-kAzzGY jHprQs sc-cSHVUG bJSzQT" font-size="3" color="heading">1. Aim for a small API surface area (React as a metaphor)</h2><p class="sc-kEYyzF fhSvky" font-size="2">  The easier the api, the easier to reuse and avoid duplications. </p></div></div><div class="sc-htoDjs zIEGn"><div><h2 class="sc-kAzzGY jHprQs sc-cSHVUG bJSzQT" font-size="3" color="heading">2. Make things easy to find</h2><p class="sc-kEYyzF fhSvky" font-size="2">Don’t start with a complex folder structure.
+Start flat and refactor as you grow.
+Adopt <a class="sc-hMqMXs gUEpCd" href="https://reactjs.org/docs/faq-structure.html" color="link">colocation</a> as you grow i.e keep files that change together close.</p><p class="sc-kEYyzF fhSvky" font-size="2"><a class="sc-hMqMXs gUEpCd" href="https://github.com/gaearon" color="link">@danabramov</a> on the best <a class="sc-hMqMXs gUEpCd" href="https://react-file-structure.surge.sh/" color="link">folder structure</a></p></div></div><div class="sc-htoDjs zIEGn"><div><h2 class="sc-kAzzGY jHprQs sc-cSHVUG bJSzQT" font-size="3" color="heading">3. Avoid renderThing methods</h2><p class="sc-kEYyzF fhSvky" font-size="2">It sometimes means there is enough complexity to be worth breaking down</p></div></div><div class="sc-htoDjs zIEGn"><div style="height:100vw;font-size:1.5rem;margin:1em 0"><div><pre class="language-jsx sc-cvbbAY jjPEjx" font-size="1" color="pre">// Instead of this
+class Items extends React.Component {
+  renderItems ({ items }) {
+    return items.map(item =&gt; (
+      &lt;li key={item.id}&gt;
+        {this.renderItem(item)}
+      &lt;/li&gt;
+    ))
+  }
+
+  renderItem (item) {
+    return (
+      &lt;div&gt;
+        {item.name}
+      &lt;/div&gt;
+    )
+  }
+
+  render () {
+    return (
+      &lt;ul&gt;
+        {this.renderItems(this.props)}
+      &lt;/ul&gt;
+    )
+  }
+}
+</pre></div></div></div><div class="sc-htoDjs zIEGn"><div><pre class="language-jsx sc-cvbbAY jjPEjx" font-size="1" color="pre">// Do this
+const ItemList = ({ items }) =&gt;
+  &lt;ul&gt;
+    {items.map(item =&gt; (
+      &lt;li key={item.id}&gt;
+        &lt;Item {...item} /&gt;
+      &lt;/li&gt;
+    )}
+  &lt;/ul&gt;
+
+const Item = ({ name }) =&gt;
+  &lt;div&gt;{item.name}&lt;/div&gt;
+
+class Items extends React.Component {
+  render () {
+    const { items } = this.props
+    return &lt;ItemList items={items} /&gt;
+  }
+}
+</pre></div></div><div class="sc-htoDjs zIEGn"><div><h2 class="sc-kAzzGY jHprQs sc-cSHVUG bJSzQT" font-size="3" color="heading">4. Split components at data boundaries</h2><p class="sc-kEYyzF fhSvky" font-size="2">Often, components should be defined by the shape of your data. Avoid using bootstrap components if possible.</p></div></div><div class="sc-htoDjs zIEGn"><div><h2 class="sc-kAzzGY jHprQs sc-cSHVUG bJSzQT" font-size="3" color="heading">5. Avoid <a class="sc-hMqMXs gUEpCd" href="https://speakerdeck.com/jenncreighton/flexible-architecture-for-react-components?slide=10" color="link">Apropcalypse</a></h2><p class="sc-kEYyzF fhSvky" font-size="2">Don’t be afraid to create a new component rather than adding abritrary props and additional logic to a component</p></div></div><div class="sc-htoDjs zIEGn"><div><pre class="language-jsx sc-cvbbAY jjPEjx" font-size="1" color="pre">// Instead of this ❌
+&lt;Button
+  variant=&#x27;secondary&#x27;
+  size=&#x27;large&#x27;
+  outline
+  label=&#x27;Buy Now&#x27;
+  icon=&#x27;shoppingBag&#x27;
+  onClick={handleClick}
+/&gt;
+
+// Do this 👍
+&lt;SecondaryButton
+  size=&#x27;large&#x27;
+  onClick={handleClick}&gt;
+  &lt;Icon name=&#x27;shoppingBag&#x27; /&gt;
+  Buy Now 
+&lt;/SecondaryButton&gt;
+</pre></div></div><div class="sc-htoDjs zIEGn"><div><h2 class="sc-kAzzGY jHprQs sc-cSHVUG bJSzQT" font-size="3" color="heading">6. Use Composition</h2><p class="sc-kEYyzF fhSvky" font-size="2">Don’t reinvent <code class="sc-jWBwVP fGKxXW" color="code">props.children</code>. If you’ve defined props that take arbitrary
+strings of text that aren’t based on a data structure,
+it’s probably better to use composition.</p></div></div><div class="sc-htoDjs zIEGn"><div><pre class="language-jsx sc-cvbbAY jjPEjx" font-size="1" color="pre">// Instead of this
+&lt;Header
+  title=&#x27;Hello&#x27;
+  subhead=&#x27;This is a header&#x27;
+  text=&#x27;And it has arbitrary props&#x27;
+/&gt;
+
+// Do this
+&lt;Header&gt;
+  &lt;Heading&gt;Hello&lt;/Heading&gt;
+  &lt;Subhead&gt;This is a header&lt;/Subhead&gt;
+  &lt;Text&gt;And it uses composition&lt;/Text&gt;
+&lt;/Header&gt;
+</pre></div></div><div class="sc-htoDjs zIEGn"><div><h2 class="sc-kAzzGY jHprQs sc-cSHVUG bJSzQT" font-size="3" color="heading">7. Avoid Boolean Props for enums</h2><p class="sc-kEYyzF fhSvky" font-size="2">They bring about confusion when dealing with variants</p></div></div><div class="sc-htoDjs zIEGn"><div><pre class="language-jsx sc-cvbbAY jjPEjx" font-size="1" color="pre">// instead of 
+&lt;Button primary /&gt;
+&lt;Button secondary /&gt;
+
+// think about what happens if a user does this
+&lt;Button primary secondary/&gt;
+
+// this is better
+&lt;Button variant=&quot;primary&quot; /&gt;
+</pre></div></div><div class="sc-htoDjs zIEGn"><div><h2 class="sc-kAzzGY jHprQs sc-cSHVUG bJSzQT" font-size="3" color="heading">8. Keep props APIs parallel</h2><p class="sc-kEYyzF fhSvky" font-size="2">Reuse props from other components i.e if you’re creating a custom text input,
+use the same props as the native </p><p class="sc-kEYyzF fhSvky" font-size="2"><code class="sc-jWBwVP fGKxXW" color="code">&lt;input type=&#x27;text&#x27; /&gt;</code> expects</p></div></div><div class="sc-htoDjs zIEGn"><div><h2 class="sc-kAzzGY jHprQs sc-cSHVUG bJSzQT" font-size="3" color="heading">9. Ask Your Team Mates</h2><p class="sc-kEYyzF fhSvky" font-size="2"> If these don&#x27;t fit in your use case then :-</p><ul class="sc-kkGfuU hISnYn" font-size="2"><li class="sc-hSdWYo bIQQAp">Try talking to your teammates</li><li class="sc-hSdWYo bIQQAp">Create RFCs, issues and PRs</li><li class="sc-hSdWYo bIQQAp"><p class="sc-kEYyzF fhSvky" font-size="2">Try <a class="sc-hMqMXs gUEpCd" href="http://tom.preston-werner.com/2010/08/23/readme-driven-development.html" color="link">Readme Driven Development</a>. </p></li></ul></div></div><div class="sc-htoDjs zIEGn"><div><h1 class="sc-jzJRlG enxKql sc-fjdhpX dYzIWH" font-size="4" color="heading">Reflection</h1><p class="sc-kEYyzF fhSvky" font-size="2"><strong> Writing React components is easy.</strong></p><p class="sc-kEYyzF fhSvky" font-size="2"><strong> Creating a library of components that works well for your team is worth the time and effort to get right.</strong></p><p class="sc-kEYyzF fhSvky" font-size="2"><strong>Credits:</strong> <a class="sc-hMqMXs gUEpCd" href="https://twitter.com/jxnblk?lang=en" color="link">Brent Jackson</a></p></div></div><div class="sc-htoDjs zIEGn"><div><div class="sc-jDwBTQ bRtGfs" src="ca60c4182522f4ac2656888aa3d212de.jpg" width="100vw" height="100vh"></div></div></div></div></div></div></div><div class="sc-htpNat cXgiMa"><div class="sc-bdVaJa eCoqJu"><button class="sc-bwzfXH kaUAEP" title="go to: 0" color="text"></button><button class="sc-bwzfXH gtARdA" title="go to: 1" color="text"></button><button class="sc-bwzfXH gtARdA" title="go to: 2" color="text"></button><button class="sc-bwzfXH gtARdA" title="go to: 3" color="text"></button><button class="sc-bwzfXH gtARdA" title="go to: 4" color="text"></button><button class="sc-bwzfXH gtARdA" title="go to: 5" color="text"></button><button class="sc-bwzfXH gtARdA" title="go to: 6" color="text"></button><button class="sc-bwzfXH gtARdA" title="go to: 7" color="text"></button><button class="sc-bwzfXH gtARdA" title="go to: 8" color="text"></button><button class="sc-bwzfXH gtARdA" title="go to: 9" color="text"></button><button class="sc-bwzfXH gtARdA" title="go to: 10" color="text"></button><button class="sc-bwzfXH gtARdA" title="go to: 11" color="text"></button><button class="sc-bwzfXH gtARdA" title="go to: 12" color="text"></button><button class="sc-bwzfXH gtARdA" title="go to: 13" color="text"></button><button class="sc-bwzfXH gtARdA" title="go to: 14" color="text"></button><button class="sc-bwzfXH gtARdA" title="go to: 15" color="text"></button><button class="sc-bwzfXH gtARdA" title="go to: 16" color="text"></button><button class="sc-bwzfXH gtARdA" title="go to: 17" color="text"></button><button class="sc-bwzfXH gtARdA" title="go to: 18" color="text"></button></div></div><div class="sc-ifAKCX hOCGEu sc-bxivhb fbxTAJ" role="button" title="Previous Slide"></div><div class="sc-EHOje bNhvRs sc-bxivhb fbxTAJ" role="button" title="Next Slide"></div></div>
+<script src="main.js"></script>
+</body>
+</html>
