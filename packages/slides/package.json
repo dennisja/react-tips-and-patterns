@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Deck created with mdx-deck",
   "scripts": {
-    "start": "mdx-deck deck.mdx",
+    "start": "mdx-deck slides/all.mdx",
     "build": "mdx-deck build deck.mdx",
     "pdf": "mdx-deck pdf deck.mdx",
     "image": "mdx-deck screenshot deck.mdx",
@@ -14,6 +14,7 @@
   "author": "Brent Jackson",
   "license": "MIT",
   "devDependencies": {
+    "file-loader": "^2.0.0",
     "mdx-deck": "^1.6.7"
   },
   "name": "presentation"

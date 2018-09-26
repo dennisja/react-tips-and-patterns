@@ -5,7 +5,8 @@
     "present": "cd packages/slides/ && yarn start:all",
     "setup-presentation": " cd packages/slides/ && yarn && yarn start:all",
     "demo": "cd packages/demos && yarn start",
-    "setup-demo": "cd packages/demos && yarn && yarn start"
+    "setup-demo": "cd packages/demos && yarn && yarn start",
+    "present-mdx": "cd packages/slides && yarn start"
   },
   "devDependencies": {
     "lerna": "^3.4.0"
