@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
-import { PlayButton, PauseButton, SongContainer } from './common';
+import {
+  PlayButton,
+  PauseButton,
+  SongContainer,
+  StyledProgressBar,
+} from './common';
 
 import raiseUp from '../assets/G-Eazy-Kehlani-Good-Life-CDQ.mp3';
 // const raiseUpSrc =
@@ -41,7 +46,7 @@ class Player extends Component {
 
   static Progress = ({ progress, handleForward }) => {
     return (
-      <progress
+      <StyledProgressBar
         style={{ color: 'green' }}
         max="1"
         value={progress}
@@ -90,7 +95,7 @@ class Player extends Component {
   };
 
   render() {
-    return React.Children.map(this.props.children, child =>
+    return React.Children.map(this.props.children, (child) =>
       React.cloneElement(child, {
         handlePlay: this.play,
         handleTimeUpdate: this.handleTimeUpdate,

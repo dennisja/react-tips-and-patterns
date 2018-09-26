@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 
-import { PlayButton, PauseButton, SongContainer } from './common';
+import {
+  PlayButton,
+  PauseButton,
+  SongContainer,
+  StyledProgressBar,
+} from './common';
 import raiseUp from '../assets/G-Eazy-Kehlani-Good-Life-CDQ.mp3';
 
 const defaultPlayerContextValue = {
@@ -63,7 +68,9 @@ export const PlayPause = () => (
 export const Progress = () => (
   <PlayerContext.Consumer>
     {({ progress, handleForward }) => {
-      return <progress max="1" value={progress} onClick={handleForward} />;
+      return (
+        <StyledProgressBar max="1" value={progress} onClick={handleForward} />
+      );
     }}
   </PlayerContext.Consumer>
 );

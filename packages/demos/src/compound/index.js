@@ -15,15 +15,15 @@ export default class CompoundDemo extends React.Component {
   render() {
     return (
       <React.Fragment>
-        {/* <Player> */}
-        {/* Discuss this as a caveat */}
-        {/* <div>Goodlife - Geazy ft Khelani</div> */}
-        {/* <Player.Song />
-          <Player.Progress />
+        <Player>
+          {/* Discuss this as a caveat */}
+          {/* <div>Goodlife - Geazy ft Khelani</div> */}
+          <Player.Song />
+          {/* <Player.Progress />
           <Player.PlayPause /> */}
-        {/* <Player.Play />
-          <Player.Pause /> */}
-        {/* </Player> */}
+          <Player.Play />
+          <Player.Pause />
+        </Player>
 
         {/* use this to demo flexible compound components */}
         {/* <ContextPlayer>
@@ -34,15 +34,15 @@ export default class CompoundDemo extends React.Component {
         </ContextPlayer> */}
 
         {/* Use this to demo clean context compound components */}
-        <CleanContextPlayer>
+        {/* <CleanContextPlayer>
           <PlayerWrapper>
-            <Song />
-            {/* <Pause />
+            <Song /> */}
+        {/* <Pause />
             <Play /> */}
-            <Progress />
+        {/* <Progress />
             <PlayPause />
           </PlayerWrapper>
-        </CleanContextPlayer>
+        </CleanContextPlayer> */}
       </React.Fragment>
     );
   }
