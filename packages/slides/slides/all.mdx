@@ -439,3 +439,43 @@ and each render in this case will generate a new value for the render prop.
 ## Solutions
 - Make the render prop an instance method to store it by reference
 
+<!-- Provider Pattern Slides Begin Here -->
+---
+
+# Provider Pattern
+
+Easily Implemented With React's New Context API
+
+It solves the problem of prop drilling
+
+---
+
+### Usage
+Create Provider, Consumer pair
+
+```jsx
+const { Provider, Consumer } = React.createContext(defaultValue);
+```
+Use provider to provide some value
+```jsx
+<Provider value={/* some value */}>
+    {children}
+</Provider>
+```
+---
+
+Consume value using a Consumer
+```jsx
+<Consumer>
+  {value => /* render something based on the context value */}
+</Consumer>
+```
+
+---
+Demo + Real World Usage
+
+---
+# Caveats
+
+- Unnecessary rerenders when a providers parent rerenders. 
+> Can be solved by putting context on state or an instance method

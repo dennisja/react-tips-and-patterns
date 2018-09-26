@@ -12,7 +12,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        {/* Un comment this for the hocs demo */}
+        {/* Un comment these for each demo*/}
         <HOCsDemo />
         {/* <ProviderDemo /> */}
         {/* <CompoundDemo /> */}
