@@ -93,8 +93,9 @@ function withData(InputComponent) {
 - Dont Use HOCS inside render methods
 ```jsx
 render() {
+  const { query, variables } = this.props
   // A new CommentList object will be created every time the render method is called
-  const CommentList = graphql(MyComponent);
+  const CommentList = graphql({query, variables})(MyComponent);
   // That causes the entire subtree to unmount/remount each time!
   return <CommentList />;
 }
