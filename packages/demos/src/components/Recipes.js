@@ -9,7 +9,7 @@ class Recipes extends React.Component {
     const { loading, error, data } = this.props;
 
     if (loading) {
-      return <div>Loading.......</div>;
+      return <Loading />;
     }
 
     if (error) {
