@@ -1,24 +1,24 @@
 # Render Props
 A render prop is a function prop that a component uses to know what to render.
 
-this enables sharing code between React components using a prop whose value is a function.
+This enables sharing code between React components using a prop whose value is a function.
 
 It helps in sharing the state or behavior that one component encapsulates to other components that need that same state.
 
 ---
 
-[Demo](https://codesandbox.io/s/wq4164q2pw)
+[Demo](http://localhost:3000/)
 
 ---
 ## Advantages
 - No naming collisions
-- Can be implemnted using both ES6 classes and functions
+- Can be implemented using both ES6 classes and functions
 - Normal React - Its `jsxy`
 
 ---
 ## Caveats
 
-- A render prop can negate the advantage that comes from using React.PureComponent
+- [A render prop can negate the advantage that comes from using React.PureComponent](https://reactjs.org/docs/render-props.html#be-careful-when-using-render-props-with-reactpurecomponent)
 
 ```notes
 If you create the function inside a render method the shallow prop comparison will always return false for new props,
