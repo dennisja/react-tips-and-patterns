@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 // demos
-// import ToastMaster from './provider'; // for demonstrating provider pattern
-import CompoundDemo from './compound';
-import RenderPropsDemo from './renderProps';
+// import ProviderDemo from './provider'; // for demonstrating provider pattern
+// import CompoundDemo from './compound';
+// import RenderPropsDemo from './renderProps';
 import HOCsDemo from './components/Recipes';
 
 import './styles.css';
@@ -14,7 +14,7 @@ class App extends React.Component {
       <div className="App">
         {/* Un comment this for the hocs demo */}
         <HOCsDemo />
-        {/* <ToastMaster /> */}
+        {/* <ProviderDemo /> */}
         {/* <CompoundDemo /> */}
         {/* <RenderPropsDemo /> */}
       </div>
