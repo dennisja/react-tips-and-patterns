@@ -1,0 +1,200 @@
+import { Head } from 'mdx-deck'
+import Layout from '../src/layouts/Layout'
+
+export { dark as theme } from 'mdx-deck/themes'
+
+<Head>
+  <title>Its Just React: Tips and Patterns to super charge your React Development</title>
+</Head>
+
+# Hello
+
+---
+
+## Edit this file
+
+To create your presentation
+
+```notes
+- Create speaker notes in fenced code blocks
+```
+
+---
+## [Defining React component APIS](https://jxnblk.xcom/writing/posts/defining-component-apis-in-react/#defining-component-apis-in-react)
+  We will be following Brent Jacksons lessons learned.
+  ## 1. Aim for a small API surface area (React as a metaphor)
+
+  The easier the api, the easier to reuse and avoid duplications. 
+
+---
+## 2. Make things easy to find
+
+Don’t start with a complex folder structure. 
+Start flat and refactor as you grow. 
+Adopt [colocation](https://reactjs.org/docs/faq-structure.html) as you grow i.e keep files that change together close.
+
+[@danabramov](https://github.com/gaearon) on the best [folder structure](https://react-file-structure.surge.sh/)
+
+---
+## 3. Avoid renderThing methods 
+It sometimes means there is enough complexity to be worth breaking down
+
+---
+
+export default Layout
+
+```jsx
+// Instead of this
+class Items extends React.Component {
+  renderItems ({ items }) {
+    return items.map(item => (
+      <li key={item.id}>
+        {renderItem(item)}
+      </li>
+    ))
+  }
+
+  renderItem (item) {
+    return (
+      <div>
+        {item.name}
+      </div>
+    )
+  }
+
+  render () {
+    return (
+      <ul>
+        {renderItems(this.props)}
+      </ul>
+    )
+  }
+}
+```
+---
+
+```jsx
+// Do this
+const ItemList = ({ items }) =>
+  <ul>
+    {items.map(item => (
+      <li key={item.id}>
+        <Item {...item} />
+      </li>
+    )}
+  </ul>
+
+const Item = ({ name }) =>
+  <div>{item.name}</div>
+
+class Items extends React.Component {
+  render () {
+    const { items } = this.props
+    return <ItemList items={items} />
+  }
+}
+```
+
+---
+## 4. Split components at data boundaries
+Often, components should be defined by the shape of your data. Avoid using bootstrap components if possible.
+
+```notes
+Adopt the [Rule of Three](https://en.wikipedia.org/wiki/Rule_of_three_(computer_programming)) 
+when refactoring i.e if you have duplicated a component structure three times in your code base consider refactoring
+```
+
+---
+## 5. Avoid [Apropcalypse](https://speakerdeck.com/jenncreighton/flexible-architecture-for-react-components?slide=10)
+Don’t be afraid to create a new component rather than adding abritrary props and additional logic to a component
+
+---
+
+```jsx
+// Instead of this ❌
+<Button
+  variant='secondary'
+  size='large'
+  outline
+  label='Buy Now'
+  icon='shoppingBag'
+  onClick={handleClick}
+/>
+
+// Do this 👍
+<SecondaryButton
+  size='large'
+  onClick={handleClick}>
+  <Icon name='shoppingBag' />
+  Buy Now 
+</SecondaryButton>
+```
+```notes
+Your needs may vary, but reducing the number of custom props 
+that any component requires is generally helpful, 
+and reducing the amount of logic in the render function 
+can make the code base simpler and better-suited for code splitting.
+```
+
+---
+## 6. Use Composition
+Don’t reinvent `props.children`. If you’ve defined props that take arbitrary
+ strings of text that aren’t based on a data structure, 
+ it’s probably better to use composition.
+
+---
+
+```jsx
+// Instead of this
+<Header
+  title='Hello'
+  subhead='This is a header'
+  text='And it has arbitrary props'
+/>
+
+// Do this
+<Header>
+  <Heading>Hello</Heading>
+  <Subhead>This is a header</Subhead>
+  <Text>And it uses composition</Text>
+</Header>
+```
+
+---
+## 7. Avoid Boolean Props for enums
+They bring about confusion when dealing with variants
+
+---
+
+```jsx
+// instead of 
+<Button primary />
+<Button secondary />
+
+// think about what happens if a user does this
+<Button primary secondary/>
+
+// this is better
+<Button variant="primary" />
+```
+
+---
+## 8. Keep props APIs parallel
+Reuse props from other components i.e if you’re creating a custom text input, 
+use the same props as the native 
+
+```<input type='text' />``` expects
+---
+## 9. Ask Your Team Mates
+ If these don't fit in your use case then :-
+  - Try talking to your teammates
+  - Create RFCs, issues and PRs
+  - Try Readme Driven Development. 
+---
+# Reflection
+** Writing React components is easy.**
+
+** Creating a library of components that works well for your team is worth the time and effort to get right.**
+
+---
+I wish there were patterns to help us write React Components

@@ -1,6 +1,10 @@
 {
   "name": "root",
   "private": true,
+  "scripts": {
+    "present": "cd packages/slides/ && yarn start:all",
+    "setup-presentation": " cd packages/slides/ && yarn && yarn start:all"
+  },
   "devDependencies": {
     "lerna": "^3.4.0"
   }
