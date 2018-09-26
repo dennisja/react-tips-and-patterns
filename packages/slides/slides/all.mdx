@@ -221,6 +221,11 @@ use the same props as the native
 ---
 <Image src={require("file-loader!../assets/wtf.jpg")} size="contain" />
 
+
+
+
+<!-- Presentation and Container Slides Begin here -->
+
 ---
 
 ## Presentation and Container Components
@@ -284,4 +289,119 @@ const CommentList = props =>
       <li>{c.body}—{c.author}</li>
     ))}
   </ul>
+```
+
+
+
+
+
+
+<!-- Higher Order Components Slides BEgin Here -->
+---
+## Higher Order Components
+
+A HOC is a function that takes a component and returns a new component.
+
+A HOC transforms a component into another component.
+
+```js
+const TransformedComponent = higherOrderComponent(Component)
+```
+
+---
+## Commonly Used HOC signatures
+- Single Argument HOCs
+```js
+const NavbarWithRouter = withRouter(Navbar);
+```
+- Multiple arguments HOCs
+```
+const CommentWithRelay = Relay.createContainer(Comment, config);
+```
+---
+- Higher-order function that returns a higher-order component
+```js
+// React Redux's `connect`
+const ConnectedComment = connect(commentSelector, commentActions)(CommentList);
+// Apollo's graphql
+const ConnectedComment = graphql(commentQueryDetails)(CommentList)
+```
+---
+
+[Demo](http://localhost:3000/)
+
+---
+#### Note: Don't mutate original component. Use Composition
+
+```jsx
+// Instead of
+function logPropsOnUpdate(InputComponent) {
+  InputComponent.prototype.componentDidUpdate = function(prevProps) {
+    console.log('Current props: ', this.props);
+    console.log('Previous props: ', prevProps);
+  };
+
+  return InputComponent;
+}
+
+// EnhancedComponent will log whenever props are received
+const EnhancedComponent = logPropsOnUpdate(InputComponent);
+```
+
+---
+```jsx
+// Do
+function logPropsOnUpdate(InputComponent) {
+    return class extends React.Component{
+        componentDidUpdate = function(prevProps) {
+            console.log('Current props: ', this.props);
+            console.log('Previous props: ', prevProps);
+        };
+        render(){
+            return <InputComponent {...this.props} />
+        }
+    }
+}
+
+// EnhancedComponent will log whenever props are received
+const EnhancedComponent = logPropsOnUpdate(InputComponent);
+```
+
+---
+### Conventions Used When Implementing HOCs
+
+1. Pass through props to the Wrapped component
+
+---
+
+2. Wrap Display name for easy debugging
+
+```jsx
+function withData(InputComponent) {
+    class WithData  extends React.Component{/**/}
+
+    const inputComponentName = InputComponent.displayName || InputComponent.name || 'Component'
+
+    WithData.displayName = `WithData(${inputComponentName})`
+
+    return WithData
+}
+```
+
+---
+### Caveats
+- Dont Use HOCS inside render methods
+```jsx
+render() {
+  // A new CommentList object will be created every time the render method is called
+  const CommentList = graphql(MyComponent);
+  // That causes the entire subtree to unmount/remount each time!
+  return <CommentList />;
+}
+```
+- [Static methods must be copied over](https://reactjs.org/docs/higher-order-components.html#static-methods-must-be-copied-over)
+- [Refs are not passed through](https://reactjs.org/docs/higher-order-components.html#refs-arent-passed-through)
+- Naming Collisions
+```notes
+Use Refs Forwarding to solve props not passed through
 ```

@@ -6,7 +6,7 @@ export default {
   colors: {
     text: 'rgb(106, 215, 152)',
     background: 'rgb(1, 22, 39)',
-    link: 'blue',
+    link: '#40C4FF',
   },
   prism: {
     style: okaidia,

@@ -27,9 +27,14 @@ const ConnectedComment = connect(commentSelector, commentActions)(CommentList);
 const ConnectedComment = graphql(commentQueryDetails)(CommentList)
 ```
 ---
+
+[Demo](http://localhost:3000/)
+
+---
 #### Note: Don't mutate original component. Use Composition
-Instead of
+
 ```jsx
+// Instead of
 function logPropsOnUpdate(InputComponent) {
   InputComponent.prototype.componentDidUpdate = function(prevProps) {
     console.log('Current props: ', this.props);
@@ -44,8 +49,8 @@ const EnhancedComponent = logPropsOnUpdate(InputComponent);
 ```
 
 ---
-Do
 ```jsx
+// Do
 function logPropsOnUpdate(InputComponent) {
     return class extends React.Component{
         componentDidUpdate = function(prevProps) {
@@ -64,9 +69,12 @@ const EnhancedComponent = logPropsOnUpdate(InputComponent);
 
 ---
 ### Conventions Used When Implementing HOCs
-1.Pass through props to the Wrapped component
 
-2.Wrap Display name for easy debugging
+1. Pass through props to the Wrapped component
+
+---
+
+2. Wrap Display name for easy debugging
 
 ```jsx
 function withData(InputComponent) {
