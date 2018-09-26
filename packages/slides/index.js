@@ -8,6 +8,8 @@ import beyond from './slides/beyond-render-props.mdx';
 import performance from './slides/performance.mdx';
 import extra from './slides/extra.mdx';
 
+export { default as theme } from './theme';
+
 export default [
   ...componentApis,
   ...container,
