@@ -4,9 +4,10 @@
   "scripts": {
     "present": "cd packages/slides/ && yarn start:all",
     "setup-presentation": " cd packages/slides/ && yarn && yarn start:all",
+    "present-mdx": "cd packages/slides && yarn start",
     "demo": "cd packages/demos && yarn start",
     "setup-demo": "cd packages/demos && yarn && yarn start",
-    "present-mdx": "cd packages/slides && yarn start"
+    "test": "cd packages/demos && yarn test"
   },
   "devDependencies": {
     "lerna": "^3.4.0"
