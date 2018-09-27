@@ -5,7 +5,7 @@
     "present": "cd packages/slides/ && yarn start:all",
     "setup-presentation": " cd packages/slides/ && yarn && yarn start:all",
     "present-mdx": "cd packages/slides && yarn start",
-    "deploy-slides": "cd packages/slides && node deploy.js",
+    "deploy-slides": "cd packages/slides && yarn build && node deploy.js",
     "demo": "cd packages/demos && yarn start",
     "setup-demo": "cd packages/demos && yarn && yarn start",
     "install": "cd packages/demos && yarn",

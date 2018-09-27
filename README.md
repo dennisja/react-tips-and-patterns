@@ -46,3 +46,5 @@ cd react-tips-and-patterns
   ```sh
     yarn demo
   ```
+
+Slides where built using [mdx-deck](https://github.com/jxnblk/mdx-deck). Thanks [Brent Jackson](https://github.com/jxnblk) for the help extended
