@@ -6,7 +6,8 @@ import {
   SongContainer,
   StyledProgressBar,
 } from './common';
-import raiseUp from '../assets/G-Eazy-Kehlani-Good-Life-CDQ.mp3';
+const raiseUp =
+  'http://70clacks.co/wp-content/uploads/2017/03/G-Eazy-Kehlani-Good-Life-CDQ.mp3';
 
 const defaultPlayerContextValue = {
   handlePlay: () => {},
