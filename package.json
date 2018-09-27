@@ -7,7 +7,7 @@
     "present-mdx": "cd packages/slides && yarn start",
     "demo": "cd packages/demos && yarn start",
     "setup-demo": "cd packages/demos && yarn && yarn start",
-    "install": "cd packages/demo && yarn",
+    "install": "cd packages/demos && yarn",
     "test": "cd packages/demos && yarn test"
   },
   "devDependencies": {
