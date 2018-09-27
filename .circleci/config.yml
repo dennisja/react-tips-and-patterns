@@ -29,15 +29,5 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - run:
-          name: Running Linter
-          command: yarn lint
-
-      - run:
           name: Running Tests with Coverage
-          command: yarn test:coveralls
-
-workflows:
-  version: 2
-  build-it:
-    jobs:
-      - build
+          command: yarn test
