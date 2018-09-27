@@ -4,7 +4,7 @@
   "description": "Deck created with mdx-deck",
   "scripts": {
     "start": "mdx-deck slides/all.mdx",
-    "build": "mdx-deck build deck.mdx",
+    "build": "mdx-deck build slides/all.mdx",
     "pdf": "mdx-deck pdf deck.mdx",
     "image": "mdx-deck screenshot deck.mdx",
     "help": "mdx-deck",
@@ -15,6 +15,7 @@
   "license": "MIT",
   "devDependencies": {
     "file-loader": "^2.0.0",
+    "gh-pages": "^2.0.0",
     "mdx-deck": "^1.6.7"
   },
   "name": "presentation"
