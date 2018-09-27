@@ -1,21 +1,23 @@
 export { dark as theme } from 'mdx-deck/themes'
 
 # Why React Apps Might be Slow?
-Browser
+1. Browser Side
     - Dom elements and mutations
     - Repaints and Reflow
     - Garbage Collection
 
-2. React
+---
+
+2. React Side
     - Unnecessary Re renders
     - React Development Build(Bundle Size)
 
 ---
 
 # Techniques that can be employed to improve performance of react apps
-1. Windowing
-2. Memoization
-3. shouldComponentUpdate
-4. PureComponent
-6. Code Splitting
-7. Building for Production
+1. [Windowing](https://www.youtube.com/watch?v=t4tuhg7b50I)
+2. [Memoization](https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html#what-about-memoization)
+3. [shouldComponentUpdate](https://developmentarc.gitbooks.io/react-indepth/content/life_cycle/update/using_should_component_update.html)
+4. [PureComponent](https://reactjs.org/docs/react-api.html#reactpurecomponent)
+6. [Code Splitting](https://reactjs.org/docs/code-splitting.html)
+7. [Building for Production](https://reactjs.org/docs/optimizing-performance.html)
