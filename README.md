@@ -12,6 +12,11 @@ The workshop was inspired by [Kent C Dodd's](https://github.com/kentcdodds) talk
 
 **The slides of the talk can be found [here](https://dennisja.github.io/react-tips-and-patterns/#0)**
 
+## Requirements
+
+- Lerna or yarn or npm
+- Node
+
 ## Running the Examples
 
 - Clone the Repository and move to the root directory
@@ -46,5 +51,21 @@ cd react-tips-and-patterns
   ```sh
     yarn demo
   ```
+
+  > If you are using lerna you will need to run the commands below
+
+1. Setup project (Install all dependencies for slides and demos )
+
+```sh
+yarn setup
+```
+
+or
+
+```sh
+lerna bootstrap
+```
+
+2. Run slides or demos as explained above
 
 Slides where built using [mdx-deck](https://github.com/jxnblk/mdx-deck). Thanks [Brent Jackson](https://github.com/jxnblk) for the help extended
